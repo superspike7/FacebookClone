@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_233748) do
+ActiveRecord::Schema.define(version: 2021_04_01_234622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_233748) do
 
   create_table "invitations", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.boolean "confirmed"
+    t.boolean "confirmed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "friend_id"
