@@ -11,14 +11,41 @@
   </head>
 
   <body>
-  <br>
-    <% if current_user %> 
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to "Sign In", new_user_session_path %>
-    <%= link_to  "Sign Up", new_user_registration_path %>
-    <% end %> 
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <h2 class="title is-2"> <span class="has-text-primary has-text-weight-medium title is-1">F</span>akeBook</h2>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Newsfeed 
+          </a>
+
+          <a class="navbar-item">
+            Find Friends
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <% if current_user %> 
+            <p class="is-size-5 mr-5"><%= current_user.name %></p>
+            <div class="buttons">
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button is-primary" %>
+              <% else %>
+                <%= link_to  "Sign Up", new_user_registration_path, class: "button is-primary" %>
+                <%= link_to "Sign In", new_user_session_path, class: "button is-light" %>
+            </div>
+            <% end %> 
+          </div>
+        </div>
+      </div>
+    </nav>
     
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
