@@ -1,5 +1,6 @@
 class Invitation < ApplicationRecord
   belongs_to :user
+  validates_uniqueness_of :user_id, :scope => :friend_id
 
   def self.reacted?(id1, id2)
     case1 = !Invitation.where(user_id: id1, friend_id: id2).empty?
