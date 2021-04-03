@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'friends', to: 'users#friends'
   get 'invite/:id', to: 'users#invite', as: 'invite'
   get 'friend_requests', to: 'users#friend_requests'
+  delete 'delete_request/:id', to: 'users#delete_request', as: 'delete_request'
 
 end

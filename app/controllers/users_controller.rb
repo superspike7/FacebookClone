@@ -25,4 +25,10 @@ class UsersController < ApplicationController
     @pending_requests = current_user.pending_invitations
   end
 
+  def delete_request 
+    @user_id = params[:id]
+    current_user.invitations.find_by(friend_id: @user_id).destroy
+    redirect_to friend_requests_url
+  end
+
 end
