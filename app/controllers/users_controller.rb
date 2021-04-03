@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def friend_requests
     @users = User.all
     @friends = current_user.friends
-    @requests = current_user.invitations
+    @requests = current_user.invitations.where(confirmed: false)
     @pending_requests = current_user.pending_invitations
   end
 
