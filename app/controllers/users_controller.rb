@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def invite
     @user = User.find(params[:id])
     if current_user.send_invitation(@user)
-      redirect_to :friend_requests
+      render:friend_requests
     else
       flash[:alert] = "something went wrong"
       render :index
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def friend_requests
+    @users = User.all
     @requests = current_user.invitations
     @pending_requests = current_user.pending_invitations
   end

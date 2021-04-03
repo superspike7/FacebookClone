@@ -1,13 +1,13 @@
 <h1> Friend Request Sent: </h1>
 <ul>
 <% @requests.each do |r| %>
-  <li> <%= r.name %> </li>
+  <li> <%= @users.find(r.friend_id).name %> </li>
 <% end %>
 </ul>
 
 <h1> Friend Request Pending: </h1>
 <ul>
 <% @pending_requests.each do |r| %>
-  <li> <%= r.name %> </li>
+  <li> <%= @users.find(r.user_id).name %> </li>
 <% end %>
 </ul>
