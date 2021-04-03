@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def friend_requests
     @requests = current_user.invitations
+    @pending_requests = current_user.pending_invitations
   end
 
 end
