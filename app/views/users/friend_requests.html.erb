@@ -1,13 +1,20 @@
-<h1> Friend Request Sent: </h1>
+<h1> Friend Request Sent: (<%= @requests.count %>)</h1>
 <ul>
 <% @requests.each do |r| %>
   <li> <%= @users.find(r.friend_id).name %> <%= link_to "Cancel Request", delete_request_path(r.friend_id), method: :delete, data: {confirm: "Are you sure?"} %> </li>
 <% end %>
 </ul>
 
-<h1> Friend Request Pending: </h1>
+<h1 class="mt-5"> Friend Request Pending: (<%= @pending_requests.count%>) </h1>
 <ul>
 <% @pending_requests.each do |r| %>
-  <li> <%= @users.find(r.user_id).name %> <%= link_to "Accept Request", root_path %> </li>
+  <li> <%= @users.find(r.user_id).name %> <%= link_to "Accept Request", accept_request_path(r.user_id), method: :put %> </li>
+<% end %>
+</ul>
+
+<h1 class="mt-5"> Friends : (<%= @friends.count%>) </h1>
+<ul>
+<% @friends.each do |f| %>
+  <li> <%= f.name %> <%= link_to "Unfriend", unfriend_path(f.id), method: :put%> </li>
 <% end %>
 </ul>

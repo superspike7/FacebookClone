@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :invitations, dependent: :destroy
-  has_many :pending_invitations, -> { where  confirmed: false }, class_name: 'Invitation', foreign_key: "friend_id", dependent: :destroy
+  has_many :pending_invitations, -> { where  confirmed: false }, class_name: 'Invitation', foreign_key: "friend_id"
 
   def friends
     friends_i_sent_invitation = Invitation.where(user_id: id, confirmed: true).pluck(:friend_id)
@@ -21,6 +21,14 @@ class User < ApplicationRecord
 
   def send_invitation(user)
     invitations.create(friend_id: user.id)
+  end
+
+  def accept_invitation(user)
+    pending_invitations.find_by(user_id: user.id).update_attribute(:confirmed, "true")
+  end
+
+  def unfriend(user)
+    invitations.where()
   end
   
 
