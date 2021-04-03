@@ -17,7 +17,13 @@
             </div>
           </div>
           <footer class="card-footer">
-            <%= button_to "Add Friend", invite_path(user), method: :get , class: "button card-footer-item" %>
+          <% if current_user.friend_with?(user) %>
+            <p class="card-footer-item"> Friend </p>
+            <% elsif current_user.invitation_sent(user).empty? %>
+            <%= link_to "Add Friend", invite_path(user), method: :get , class: "card-footer-item" %>
+            <% else %>
+            <%= link_to "Cancel Request", delete_request_path(user.id), method: :delete, data: {confirm: "Are you sure?"}, class: "card-footer-item" %> 
+            <% end %>
             <a href="#" class="card-footer-item">View Profile</a>
           </footer>
         </div>

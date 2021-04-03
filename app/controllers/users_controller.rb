@@ -8,10 +8,10 @@ class UsersController < ApplicationController
   def invite
     @user = User.find(params[:id])
     if current_user.send_invitation(@user)
-      redirect_to friend_requests_url
+      redirect_to users_url
     else
       flash[:alert] = "something went wrong"
-      render :index
+      redirect_to users_url
     end
   end
 

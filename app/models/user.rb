@@ -27,10 +27,9 @@ class User < ApplicationRecord
     pending_invitations.find_by(user_id: user.id).update_attribute(:confirmed, "true")
   end
 
-  def unfriend(user)
-    invitations.where()
+  def invitation_sent(user) 
+    Invitation.where(user_id: id, friend_id: user.id, confirmed: false)
   end
-  
 
 
 end
