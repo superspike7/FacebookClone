@@ -1,6 +1,5 @@
 <%= render "form" %>
 <div class="container mt-6">
-<h1 class="title has-text-centered"> News Feed</h1>
   <div class="column is-three-fifths is-offset-one-fifth">
       <% @posts.each do |p| %>
         <div class="card mt-4">
@@ -18,8 +17,7 @@
             </div>
 
             <div class="content">
-              <h1 class="title"> <%= p.title %> </h1> 
-              <%= p.body %>
+              <%= p.content   %>
               <br>
             </div>
           </div>
