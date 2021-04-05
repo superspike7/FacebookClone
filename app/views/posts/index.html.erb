@@ -3,7 +3,7 @@
 <h1 class="title has-text-centered"> News Feed</h1>
   <div class="column is-three-fifths is-offset-one-fifth">
       <% @posts.each do |p| %>
-        <div class="card">
+        <div class="card mt-4">
           <div class="card-content">
             <div class="media">
               <div class="media-left">
@@ -22,11 +22,11 @@
               <%= p.body %>
               <br>
             </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">Like</a>
-              <a href="#" class="card-footer-item">Comment</a>
-            </footer>
           </div>
+          <footer class="card-footer">
+            <a href="#" class="card-footer-item">Like</a>
+            <a href="#" class="card-footer-item">Comment</a>
+          </footer>
         </div>
       <% end %>
   </div>
