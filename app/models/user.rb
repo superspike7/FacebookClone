@@ -7,7 +7,8 @@ class User < ApplicationRecord
 
   has_many :invitations, dependent: :destroy
   has_many :pending_invitations, -> { where  confirmed: false }, class_name: 'Invitation', foreign_key: "friend_id"
-  has_many :post
+  has_many :post, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def friends
     friends_i_sent_invitation = Invitation.where(user_id: id, confirmed: true).pluck(:friend_id)

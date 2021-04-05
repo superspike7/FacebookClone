@@ -19,10 +19,17 @@
             <div class="content">
               <%= p.content   %>
               <br>
+              <br>
             </div>
           </div>
+           <p class="ml-5">(<%= p.likes.count %>)  <%= p.likes.count < 1 ? 'Like' : 'Likes' %></p>
           <footer class="card-footer">
-            <a href="#" class="card-footer-item">Like</a>
+            <% pre_like = p.likes.find { |like| like.user_id == current_user.id} %>
+            <% if pre_like %>
+              <%= link_to 'Unlike', post_like_path(p, pre_like), method: :delete, class: "card-footer-item"%>
+            <% else %>
+              <%= link_to 'Like', post_likes_path(p), method: :post, class: "card-footer-item" %>
+            <% end %>
             <a href="#" class="card-footer-item">Comment</a>
           </footer>
         </div>
