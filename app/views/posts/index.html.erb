@@ -1,0 +1,13 @@
+<%= render "form" %>
+<div class="container mt-6">
+<h1 class="title has-text-centered"> News Feed</h1>
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="card">
+      <% @posts.each do |p| %>
+        <p> <%= p.user.name %> </p>
+        <h1> <%= p.title %> </h1> 
+        <p> <%= p.body %> </p>
+      <% end %>
+    </div>
+  </div>
+</div>

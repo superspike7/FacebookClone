@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="column is-three-fifths is-offset-one-fifth">
+  <h1 class="title has-text-centered">create new post</h1>
+    <%= form_for @post do |f| %>
+      <div class="field">
+        <%= f.label :title, class: "label" %>
+        <div class="control">
+          <%= f.text_field :title, class: "input" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :body, class: "label" %>
+        <div class="control">
+          <%= f.text_area :body, size: "70x5", class: "textarea" %>
+        </div>
+      </div>
+        <%= f.submit "Post", class: "button" %>
+    <% end %>
+  </div>
+</div>
