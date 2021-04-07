@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <%= form_for @post do |f| %>
+      <div class="field">
+        <p class="label">What's on Your Mind?</p>
+        <div class="control">
+          <%= f.text_area :content, class: "textarea is-primary" %>
+        </div>
+      </div>
+        <%= f.submit "Post", class: "button" %>
+    <% end %>
+  </div>
+</div>

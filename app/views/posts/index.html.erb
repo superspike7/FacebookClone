@@ -33,28 +33,33 @@
             <a href="#" class="card-footer-item">Comment</a>
           </footer>
           
+          <% p.comments.each do |comment| %>
           <div class="box has-background-light mt-2">
             <article class="media">
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong>John Smith</strong> <small>@johnsmith</small> 
+                    <strong> <%= comment.user.name %> </strong> 
                     <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                    <%= comment.body %>
                   </p>
                 </div>
               </div>
             </article>
           </div>
+          <% end %>
 
-          <form class="box">
-            <div class="field">
-              <div class="control">
-                <input class="textarea is-small" placeholder="comment">
+          <div class="box">
+            <%= form_with model: Comment.new do |f| %>
+              <div class="field">
+                <div class="control">
+                <%= f.hidden_field :post_id, :value => p.id %>
+                <%= f.text_area :body, class: "textarea is-small" %>
+                </div>
               </div>
-            </div>
-            <button class="button is-primary">comment</button>
-          </form>
+              <%= f.submit "comment", class: "button is-primary" %>
+            <% end %>
+          </div>
 
         </div>
       <% end %>

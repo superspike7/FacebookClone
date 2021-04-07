@@ -6,6 +6,8 @@ Rails.application.routes.draw do
    resources :likes
   end
   
+  resources :comments
+  
   root 'posts#index'
 
   get 'friends', to: 'users#friends'
@@ -14,5 +16,6 @@ Rails.application.routes.draw do
   delete 'delete_request/:id', to: 'users#delete_request', as: 'delete_request'
   put 'accept_request/:id/accept', to: 'users#accept_request', as: 'accept_request'
   put 'unfriend/:id', to: 'users#unfriend', as: 'unfriend'
+
 
 end
