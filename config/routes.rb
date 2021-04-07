@@ -17,5 +17,9 @@ Rails.application.routes.draw do
   put 'accept_request/:id/accept', to: 'users#accept_request', as: 'accept_request'
   put 'unfriend/:id', to: 'users#unfriend', as: 'unfriend'
 
+  get ':username', to: 'profile#show', as: 'profile'
+  get ':username/new', to: 'profile#new', as: 'new_profile'
+  edit ':username/edit', to: 'profile#edit', as: 'edit_profile'
+
 
 end
