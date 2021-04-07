@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :users, only: :index
+  resources :users do
+    resource :profile
+  end
   resources :posts do
    resources :likes
+   resources :comments
   end
   
   resources :comments
@@ -17,9 +20,6 @@ Rails.application.routes.draw do
   put 'accept_request/:id/accept', to: 'users#accept_request', as: 'accept_request'
   put 'unfriend/:id', to: 'users#unfriend', as: 'unfriend'
 
-  # get ':username', to: 'profile#show', as: 'profile'
-  # get ':username/new', to: 'profile#new', as: 'new_profile'
-  # edit ':username/edit', to: 'profile#edit', as: 'edit_profile'
 
 
 end
