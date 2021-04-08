@@ -28,7 +28,7 @@
           <div class="navbar-item">
             <% if current_user %> 
             <%= link_to "Friend requests (#{current_user.pending_invitations.count})", friend_requests_path, class: "navbar-item has-text-primary-light" %>
-            <p class="is-size-5 mr-5 has-text-primary-light"><%= link_to current_user.name, user_profile_url(current_user.id) %></p>
+            <p class="is-size-5 mr-5 has-text-primary-light"><%= link_to current_user.name, root_path %></p>
             <div class="buttons">
                 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button is-primary" %>
               <% else %>
