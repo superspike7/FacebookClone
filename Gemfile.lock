@@ -228,10 +228,9 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.7)
-  image_processing (~> 1.12)
+  image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
-  mini_magick (~> 4.11)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
