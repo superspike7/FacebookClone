@@ -30,6 +30,16 @@
           <%= f.label :password_confirmation, class: "input" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
         </div>
+        
+        <div class="field">
+          <%= f.label :gender, class: "label" %>
+          <%= f.select :gender, ["Male", "Female", "Others"], class: "select" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :birth_date, class: "label" %>
+          <%= f.date_select :birth_date, start_year: 1910, class: "date" %>
+        </div>
 
         <div class="actions">
          <%= f.submit "Sign up", class: "button is-link primary" %>
