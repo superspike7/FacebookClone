@@ -58,3 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.7"
 
 gem "bulma-rails", "~> 0.9.1"
+
+gem "mini_magick", "~> 4.11"
+
+gem "image_processing", "~> 1.12"

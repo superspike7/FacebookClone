@@ -5,9 +5,13 @@
 
     <div class="column is-4">
       <figure class="image is-128x128">
+        <% if resource.avatar.attached? %>
+          <%= image_tag resource.avatar.variant(resize_to_limit: [128, 128]), class: "is-rounded" %>
+        <% else %>
         <img class="is-rounded" src="https://bulma.io/images/placeholders/256x256.png">
+        <% end %>
       </figure>
-      <a href="#">change avatar</a>
+      <%= f.file_field :avatar %>
     </div>
 
   <div class="field">
