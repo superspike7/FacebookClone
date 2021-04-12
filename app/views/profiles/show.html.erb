@@ -15,7 +15,7 @@
     <% if current_user == @user %>
       <% if @user.bio %>
        <p> <%= @user.bio %> </p> 
-       <%= link_to "edit bio" %>
+       <%= link_to "edit bio", edit_user_registration_path %>
       <% else %>
        <%= link_to "add bio" %>
       <% end %>
@@ -23,4 +23,48 @@
       <%= @user.bio %>
     <% end %>
   </h2>
+</div>
+
+<div class="container profile-wrapper">
+  <div class="columns desktop is-3 ">
+    <div class="column is-4 ">
+      <div class="box">
+        <h1 class="is-size-4">Info</h1>
+        <br>
+        <div class="block">
+          <h2 class="has-text-weight-semibold">Gender:</h2>
+          <p><%= @user.gender%></p> 
+        </div>
+        <div class="block">
+          <h2 class="has-text-weight-semibold">Birthday:</h2>
+          <p><%= @user.birth_date%></p> 
+        </div>
+        <div class="block">
+          <h2 class="has-text-weight-semibold">Hobbies:</h2>
+          <% if current_user == @user %>
+            <% if @user.hobbies %>
+              <p><%= @user.hobbies %></p> 
+              <%= link_to "add hobbies", edit_user_registration_path %>
+            <% else %>
+              <%= link_to "add hobbies", edit_user_registration_path %>
+            <% end %>
+          <% else %>
+              <p><%= @user.hobbies %></p> 
+          <% end %>
+        </div>
+      </div>
+      <div class="box">
+      <h1>Friends: (<%= @user.friends.count %>)</h1>
+      <br>
+      <% @user.friends.each do |f| %>
+        <ul>
+          <li> <%= link_to f.name, profile_path(f) %> </li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="column is-8 "> 
+      <div class="box">posts</div>
+    </div>
+  </div>
 </div>

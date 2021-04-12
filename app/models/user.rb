@@ -36,5 +36,4 @@ class User < ApplicationRecord
     Invitation.where(user_id: id, friend_id: user.id, confirmed: false)
   end
 
-
 end
