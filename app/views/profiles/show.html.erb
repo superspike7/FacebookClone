@@ -64,7 +64,76 @@
       </div>
     </div>
     <div class="column is-8 "> 
-      <div class="box">posts</div>
+      <%= render 'posts/form' %>
+      <br>
+      <div class="">
+        
+        <% @posts.each do |post| %>
+          <div class="card mt-4">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                      <figure class="image is-64x64">
+                          <%= image_tag avatar_img(post.user), class: "is-rounded" %>
+                      </figure>
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4"> <%= post.user.name %> </p>
+                  <p class="subtitle is-6"> <%= post.user.email%> </p>
+                </div>
+              </div>
+
+              <div class="content">
+                <%= post.content   %>
+                <br>
+                <br>
+              </div>
+            </div>
+              <p class="ml-5">(<%= post.likes.count %>)  <%= post.likes.count < 1 ? 'Like' : 'Likes' %></p>
+            <footer class="card-footer">
+              <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+              <% if pre_like %>
+                <%= link_to 'Unlike', post_like_path(post, pre_like), method: :delete, class: "card-footer-item"%>
+              <% else %>
+                <%= link_to 'Like', post_likes_path(post), method: :post, class: "card-footer-item" %>
+              <% end %>
+              <a href="#" class="card-footer-item">Comment</a>
+            </footer>
+            
+            <% post.comments.each do |comment| %>
+            <div class="box has-background-light mt-2">
+              <article class="media">
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong> <%= comment.user.name %> </strong> 
+                      <br>
+                      <%= comment.body %>
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <% end %>
+          </div>
+
+          <div class="box">
+            <%= form_with model: Comment.new do |f| %>
+              <div class="field">
+                <div class="control">
+                <%= f.hidden_field :post_id, :value => post.id %>
+                <%= f.text_area :body, class: "textarea is-small" %>
+                </div>
+              </div>
+              <%= f.submit "comment", class: "button is-primary" %>
+            <% end %>
+          </div>
+
+        <% end %>
+
+      </div>
     </div>
   </div>
 </div>
