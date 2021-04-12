@@ -1,3 +1,26 @@
-<%= link_to "edit", edit_user_registration_path %>
-<h1> profile show</h1>
-<p>profile of <%= @profile.name %></p>
+<div class="container">
+  <div class="has-background-primary cover">
+  </div>
+  <div class="profile-pic">
+    <figure class="image picture-circle">
+        <%= image_tag avatar_img(@user), class: "is-rounded" %>
+    </figure>
+  </div>
+</div>
+<div class="box profile-name">
+  <h1 class="has-text-weight-semibold is-size-3 has-text-centered">
+    <%= @user.name %>
+  </h1>
+  <h2 class="is-size-5 has-text-centered has-text-weight-light">
+    <% if current_user == @user %>
+      <% if @user.bio %>
+       <p> <%= @user.bio %> </p> 
+       <%= link_to "edit bio" %>
+      <% else %>
+       <%= link_to "add bio" %>
+      <% end %>
+    <% else %>
+      <%= @user.bio %>
+    <% end %>
+  </h2>
+</div>

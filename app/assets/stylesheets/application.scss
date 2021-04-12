@@ -14,3 +14,33 @@
  *= require_self
  */
 @import "bulma";
+
+.cover {
+  width: 920px;
+  height: 280px;
+  margin: auto;
+}
+
+.profile-pic {
+  width: 168px;
+  height: 168px;
+  background-color: #504f4f;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 43%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture-circle {
+  width: 160px;
+  height: 160px;
+}
+
+.profile-name {
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
