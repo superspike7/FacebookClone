@@ -3,7 +3,7 @@ module ApplicationHelper
     if user.avatar.attached?
     user.avatar.variant(resize_to_fill: [size, size, gravity: pos])
     else
-     return "https://bulma.io/images/placeholders/256x256.png"
+     return "odin.jpg"
     end
   end
 end
