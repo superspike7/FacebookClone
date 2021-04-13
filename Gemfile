@@ -59,3 +59,5 @@ gem "devise", "~> 4.7"
 
 gem "bulma-rails", "~> 0.9.1"
 
+
+gem "omniauth-facebook", "~> 8.0"
