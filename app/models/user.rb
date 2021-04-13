@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  devise :omniauthable, omniauth_providers: %i[facebook]
+
   has_many :invitations, dependent: :destroy
   has_many :pending_invitations, -> { where  confirmed: false }, class_name: 'Invitation', foreign_key: "friend_id"
   has_many :post, dependent: :destroy
