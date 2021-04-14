@@ -25,6 +25,7 @@
           <div class="actions">
             <%= f.submit "Log in", class: "button primary" %>
           </div>
+          <p> or <%= link_to "Register with Facebook", user_facebook_omniauth_authorize_path %> </p>
         <%= render "devise/shared/links" %>
     </div>
   </div>

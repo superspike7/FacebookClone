@@ -77,4 +77,8 @@ Rails.application.configure do
   #devise setup
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # omniauth facebook auth keys
+  ENV['FACEBOOK_APP_ID'] = "2842691669277625";
+  ENV['FACEBOOK_SECRET'] = "64358bf427f211ea8314618d3fbb4892";
+
 end
