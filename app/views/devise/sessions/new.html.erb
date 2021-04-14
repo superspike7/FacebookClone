@@ -25,7 +25,9 @@
           <div class="actions">
             <%= f.submit "Log in", class: "button is-primary" %>
           </div>
-            <br>
+        <br>
+        <%= link_to "Log in with facebook", user_facebook_omniauth_authorize_path, method: :post, class: "button is-link" %>
+        <br>
         <%= render "devise/shared/links" %>
     </div>
   </div>

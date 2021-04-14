@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
 
    def create
     super
-    UserMailer.welcome_email(resource).deliver unless resource.invalid?
+    UserMailer.with(resource).welcome_email.deliver_later unless resource.invalid?
   end
 
   protected
