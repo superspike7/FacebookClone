@@ -64,3 +64,5 @@ gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "figaro"
+
+gem "letter_opener", :group => :development
