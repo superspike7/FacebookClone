@@ -311,4 +311,5 @@ Devise.setup do |config|
 
   # Omniauth for facebook
   config.omniauth :facebook, ENV['facebook_app_id'], ENV['facebook_secret'] 
+
 end
