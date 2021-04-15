@@ -5,7 +5,7 @@ Odin Project Curriculum.
 
 ## Screenshot 
 
-![]{screenshots/screenshot-1.jpg}
+![](screenshots/screenshot-1.jpg)
 
 ## Features 
 
