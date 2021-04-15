@@ -17,7 +17,7 @@
        <p> <%= @user.bio %> </p> 
        <%= link_to "edit bio", edit_user_registration_path %>
       <% else %>
-       <%= link_to "add bio" %>
+       <%= link_to "add bio", edit_user_registration_path %>
       <% end %>
     <% else %>
       <%= @user.bio %>
