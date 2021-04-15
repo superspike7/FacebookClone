@@ -1,24 +1,23 @@
-# README
+# Fakebook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fakebook is a facebook clone made with Ruby on Rails. This was a capstone project from the
+Odin Project Curriculum. 
 
-Things you may want to cover:
+## Screenshot 
 
-* Ruby version
+![]{screenshots/screenshot-1.jpg}
 
-* System dependencies
+## Features 
 
-* Configuration
+* Creating Users Sign-up and Sign-in using the Devise gem
+* Create User Posts and also writing Comments on Posts and also a Liking feature
+* Users can upload their own avatar, using ActiveStorage
+* Users can also loggin with their facebook account using Omniauth gem 
 
-* Database creation
+## Features to be added 
 
-* Database initialization
+* Add realtime rendering using Hotwire or Javascript framework like Vue or React
+* Add realtime chat
+* Add emails with sendgrid (when I get a valid credit card for my heroku account)
+* Allow to Post with images
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
