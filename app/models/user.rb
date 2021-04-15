@@ -14,11 +14,12 @@ class User < ApplicationRecord
   has_one :profile
   has_one_attached :avatar
 
-  after_create :send_welcome_mail
+  # disable emails for now because i don't have a valid credit card to use heroku send grid addon
+  # after_create :send_welcome_mail
 
-  def send_welcome_mail
-    UserMailer.welcome_email(self).deliver
-  end
+  # def send_welcome_mail
+  #   UserMailer.welcome_email(self).deliver
+  # end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
